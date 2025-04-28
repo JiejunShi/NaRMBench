@@ -2,6 +2,7 @@
 
 ## Authors
 - Tingting Luo
+- Moping Xu
 - Jiejun Shi
 
 ## Dependency
@@ -33,7 +34,7 @@
 [![](https://img.shields.io/badge/pum6a-v0.0-blue)](https://github.com/liuchuwei/pum6a) 
 
 ## 1. Preprocess:
-Basecalling, read align and nanopolish-eventalign are in `./code/preprocess_pipeline.bash`.
+Code for basecalling, read align and nanopolish-eventalign are in `./code/preprocess_pipeline.bash`.
 
 ## 2. Model retraining:
 This repository contains modified code and retraining scripts for 5 RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore， NanoSPA). 
