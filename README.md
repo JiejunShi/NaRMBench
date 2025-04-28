@@ -4,7 +4,7 @@
 - Tingting Luo
 - Jiejun Shi
 
-## dependence
+## Dependency
 ![](https://img.shields.io/badge/software-version-blue)  
 [![](https://img.shields.io/badge/Guppy-v6.2.1-green)](https://community.nanoporetech.com/downloads)
 [![](https://img.shields.io/badge/Minimap2-v2.24-green)](https://github.com/lh3/minimap2)
@@ -15,7 +15,7 @@
 [![](https://img.shields.io/badge/Nanom6A-v2.0-orange)](https://github.com/gaoyubang/nanom6A)
 [![](https://img.shields.io/badge/m6Anet-v1.1-orange)](https://github.com/GoekeLab/m6anet)
 [![](https://img.shields.io/badge/Nanocompore-v1.0.3-orange)](https://github.com/tleonardi/nanocompore_paper_analyses)
-[![](https://img.shields.io/badge/DInoPORE-v0.0-orange)](https://github.com/darelab2014/Dinopore)
+[![](https://img.shields.io/badge/Dinopore-v0.0-orange)](https://github.com/darelab2014/Dinopore)
 [![](https://img.shields.io/badge/DENA-v0.0-orange)](https://github.com/weir12/DENA/tree/release)
 [![](https://img.shields.io/badge/PsiNanopore-v0.0-orange)](https://github.com/RouhanifardLab/PsiNanopore)
 [![](https://img.shields.io/badge/SingleMod-v1.0-orange)](https://github.com/xieyy46/SingleMod-v1)
@@ -23,7 +23,7 @@
 [![](https://img.shields.io/badge/DiffErr-v0.2-blue)](https://github.com/bartongroup/differr_nanopore_DRS)
 [![](https://img.shields.io/badge/DRUMMER-v0.0-blue)](https://github.com/DepledgeLab/DRUMMER/)
 [![](https://img.shields.io/badge/ELIGOS-v2.1.0-blue)](https://gitlab.com/piroonj/eligos2)
-[![](https://img.shields.io/badge/Epinano-v1.2.0-blue)](https://github.com/novoalab/EpiNano)
+[![](https://img.shields.io/badge/EpiNano-v1.2.0-blue)](https://github.com/novoalab/EpiNano)
 [![](https://img.shields.io/badge/NanoRMS-v0.0-blue)](https://github.com/novoalab/nanoRMS/tree/master)
 [![](https://img.shields.io/badge/NanoSPA-v0.0-blue)](https://github.com/sihaohuanguc/NanoSPA/tree/master)
 [![](https://img.shields.io/badge/TandemMod-v1.1.0-blue)](https://github.com/yulab2021/TandemMod)
@@ -33,16 +33,18 @@
 [![](https://img.shields.io/badge/pum6a-v0.0-blue)](https://github.com/liuchuwei/pum6a) 
 
 ## 1. Preprocess:
-basecalling, alignment and nanopolish eventalign `preprocess_pipeline.bash`
-## 2. Model retrain:
-This repository contains modified versions and retraining scripts for 5 RNA modification detection tools (m6Anet, SingleMod, Epinano, TandemMod, Dinopore). 
-To retrain a model: `m6Anet_retrain_pipeline.sh` .
-Modified source code for each tool is provided as a ZIP file (e.g. m6Anet_modified_code.zip)
+Basecalling, read align and nanopolish-eventalign are in `./code/preprocess_pipeline.bash`.
 
-The retrained models are saved in: `./retrained_model/`
-## 3. RNA modification detection:
-These models were executed with appropriate parameters to output results of all sites. `model_test_pipeline.sh`
+## 2. Model retraining:
+This repository contains modified code and retraining scripts for 5 RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore， NanoSPA). 
+For example, to retrain m6Anet model, use `./code/m6Anet_retrain_pipeline.sh`.
+Modified source code for each tool is provided as a ZIP file, e.g. `./code/m6Anet_modified_code.zip`.
+The benchmarking RNA modification sites can be found in: `./benchmarking_sites/`.
+The retrained models are saved in: `./retrained_model/`.
+
+## 3. Model testing:
+The pipeline of model testing can be found in: `./code/model_test_pipeline.sh`.
+
 ## 4. Model Evaluation
-Generates ROC and PR curves `ROC_curve.py`. 
-
-The optimal cut-off of each model for RNA modification detection was determined by varing cut-offs and calculated F1 scores `optimal_cut-off_selection.py`.
+Code for generating ROC and PR curves: `./code/ROC_curve.py`. 
+Code for selecting the optimal classification cut-off of each model:  `./code/optimal_cut-off_selection.py`.
