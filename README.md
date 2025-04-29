@@ -32,7 +32,7 @@
 Code for basecalling, read align and nanopolish-eventalign are in `./code/preprocess_pipeline.bash`.
 
 ## 2. Model retraining
-This repository contains modified code and retraining scripts for 5 RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore， NanoSPA). 
+This repository contains modified code and retraining scripts for six RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore, NanoSPA). 
 For example, to retrain m6Anet model, use `./code/m6Anet_retrain_pipeline.sh`.
 Modified source code for each tool is provided as a ZIP file, e.g. `./code/m6Anet_modified_code.zip`.
 The benchmarking RNA modification sites can be found in: `./benchmarking_sites/`.
