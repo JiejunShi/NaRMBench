@@ -1,10 +1,5 @@
 # Benchmarking the computational models detecting multitype RNA modifications from Nanopore Direct RNA Sequencing (DRS)
 
-## Authors
-- Tingting Luo
-- Moping Xu
-- Jiejun Shi
-
 ## Dependency
 ![](https://img.shields.io/badge/software-version-blue)  
 [![](https://img.shields.io/badge/Guppy-v6.2.1-green)](https://community.nanoporetech.com/downloads)
@@ -33,19 +28,24 @@
 [![](https://img.shields.io/badge/xPore-v2.0-blue)](https://github.com/GoekeLab/xpore)  
 [![](https://img.shields.io/badge/pum6a-v0.0-blue)](https://github.com/liuchuwei/pum6a) 
 
-## 1. Preprocess:
+## 1. Preprocess
 Code for basecalling, read align and nanopolish-eventalign are in `./code/preprocess_pipeline.bash`.
 
-## 2. Model retraining:
+## 2. Model retraining
 This repository contains modified code and retraining scripts for 5 RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore， NanoSPA). 
 For example, to retrain m6Anet model, use `./code/m6Anet_retrain_pipeline.sh`.
 Modified source code for each tool is provided as a ZIP file, e.g. `./code/m6Anet_modified_code.zip`.
 The benchmarking RNA modification sites can be found in: `./benchmarking_sites/`.
 The retrained models are saved in: `./retrained_model/`.
 
-## 3. Model testing:
+## 3. Model testing
 The pipeline of model testing can be found in: `./code/model_test_pipeline.sh`.
 
 ## 4. Model Evaluation
 Code for generating ROC and PR curves: `./code/ROC_curve.py`. 
 Code for selecting the optimal classification cut-off of each model:  `./code/optimal_cut-off_selection.py`.
+
+## Authors
+- Tingting Luo
+- Moping Xu
+- Jiejun Shi
