@@ -25,25 +25,25 @@
 [![](https://img.shields.io/badge/TandemMod-v1.1.0-blue)](https://github.com/yulab2021/TandemMod)
 [![](https://img.shields.io/badge/NanoMUD-v0.0-blue)](https://github.com/ABOMSBI/NanoMUD/tree/main)
 [![](https://img.shields.io/badge/m6Aiso-v0.0-blue)](https://github.com/SYSU-Wang-LAB/m6Aiso)
-[![](https://img.shields.io/badge/xPore-v2.0-blue)](https://github.com/GoekeLab/xpore)  
-[![](https://img.shields.io/badge/pum6a-v0.0-blue)](https://github.com/liuchuwei/pum6a) 
+[![](https://img.shields.io/badge/xPore-v2.0-blue)](https://github.com/GoekeLab/xpore)
+[![](https://img.shields.io/badge/pum6a-v0.0-blue)](https://github.com/liuchuwei/pum6a)
 
 ## 1. Preprocess
-Code for basecalling, read align and nanopolish-eventalign are in `./code/preprocess_pipeline.bash`.
+- Code for basecalling, read align and nanopolish-eventalign are in `./code/preprocess_pipeline.bash`.
 
 ## 2. Model retraining
-This repository contains modified code and retraining scripts for six RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore, NanoSPA). 
-For example, to retrain m6Anet model, use `./code/m6Anet_retrain_pipeline.sh`.
-Modified source code for each tool is provided as a ZIP file, e.g. `./code/m6Anet_modified_code.zip`.
-The benchmarking RNA modification sites can be found in: `./benchmarking_sites/`.
-The retrained models are saved in: `./retrained_model/`.
+- This repository contains modified code and retraining scripts for six RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore, NanoSPA). 
+- For example, to retrain m6Anet model, use `./code/m6Anet_retrain_pipeline.sh`.
+- Modified source code for each tool is provided as a ZIP file, e.g. `./code/m6Anet_modified_code.zip`.
+- The benchmarking RNA modification sites can be found in: `./benchmarking_sites/`.
+- The retrained models are saved in: `./retrained_model/`.
 
 ## 3. Model testing
-The pipeline of model testing can be found in: `./code/model_test_pipeline.sh`.
+- The pipeline of model testing can be found in: `./code/model_test_pipeline.sh`.
 
 ## 4. Model Evaluation
-Code for generating ROC and PR curves: `./code/ROC_curve.py`. 
-Code for selecting the optimal classification cut-off of each model:  `./code/optimal_cut-off_selection.py`.
+- Code for generating ROC and PR curves: `./code/ROC_curve.py`.
+- Code for selecting the optimal classification cut-off of each model:  `./code/optimal_cut-off_selection.py`.
 
 ## Authors
 - Tingting Luo
