@@ -48,4 +48,6 @@
 ## Authors
 - Tingting Luo
 - Moping Xu
+- Miao Wang
+- Faying Chen
 - Jiejun Shi
