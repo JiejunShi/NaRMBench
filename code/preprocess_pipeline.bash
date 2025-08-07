@@ -1,8 +1,9 @@
 #!/bin/bash
 ws=path_to_work
 guppy=path_to_guppy_software
+dorado=path_to_dorado_software
 ref=path_to_reference_transcriptome
-
+wt_pod5=path_to_input_pod5_files
 wt_raw_fast5=path_to_input_fast5_files
 ko_raw_fast5=path_to_input_fast5_files
 
@@ -13,8 +14,12 @@ wt_basecall=path_to_save_basecalled_fast5_files
 ko_basecall=path_to_save_basecalled_fast5_files
 
 #basecalling
+#RNA002
 $guppy/bin/guppy_basecaller -i $ws/wt_fast5 -s $ws/wt_basecall -c $guppy/data/rna_r9.4.1_70bps_hac.cfg --fast5_out -r  --cpu_threads_per_caller 24
 cat $ws/wt_basecall/pass/*fastq > $ws/wt.fastq
+#RNA004
+$dorado/bin/dorado basecaller $dorado/rna004_130bps_sup@v3.0.1  $wt_pod5 --reference $ref  > $ws/wt_basecall/wt.bam
+samtools fastq $ws/wt_basecall/wt.bam  > $ws/wt_basecall/wt.fastq
 
 ##alignment
 minimap2 -ax map-ont --MD -t 16 $ref $ws/wt.fastq > $ws/wt.sam
@@ -36,3 +41,4 @@ tombo resquiggle $ws/wt_single/workspace/ $ref \
 --include-event-stdev
 
 #apply the same operation in ko
+
