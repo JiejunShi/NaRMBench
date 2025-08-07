@@ -36,7 +36,7 @@ python $Epinano/Epinano_Predict.py -o $prefix \
 # Output:
 #   Trained model saved as $prefix.model.pkl
 ```
-- Note: We use the `fwd.per.site.${kmer_length}.csv` file and assign a binary `Match` value to each site based on the known ground truth modification sites `benchmarking_sites` : 1 for modified and 0 for unmodified. The final output is the training file $TRAIN, with an additional Match column indicating the modification status.
+- Note: We use the `fwd.per.site.${kmer_length}.csv` file and assign a binary `Match` value to each site based on the known ground truth modification sites `benchmarking_sites` : 1 for modified and 0 for unmodified. The final output is the training file `$TRAIN`, with an additional `Match` column indicating the modification status.
 ## 3.Predict RNA modifications using trained model
 ```
 python $Epinano/Epinano_Predict.py --model $MODEL \
