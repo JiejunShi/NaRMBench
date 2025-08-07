@@ -489,9 +489,10 @@ python -m m6Aiso molecular_m6A_predication --model_path $m6Aiso/module/semi_mode
         --max_value_filename $m6Aiso/data/merge_max_value_list.txt \
         --min_value_filename $m6Aiso/data/merge_min_value_list.txt
 ##22.dorado
-$dorado/bin/dorado basecaller $dorado/rna004_130bps_sup@v3.0.1  $wt_pod5 --reference $ref --reference $ref --modified-bases m6A_DRACH >  $ws/wt_basecall/wt.bam
+$dorado/bin/dorado basecaller $dorado/rna004_130bps_sup@v5.2.0  $wt_pod5 --reference $ref --reference $ref --modified-bases m6A_DRACH >  $ws/wt_basecall/wt.bam
 $modkit pileup $ws/wt_basecall/wt.bam $ws/wt.dorado.bed
 ##23.xron
 $xron call -i $ws/wt_single/workspace -o $ws/wt_basecall --fast5 -m $xron/models/RNA004 --device cuda --batch_size 200
 #apply the same operation in ko
+
 
