@@ -35,13 +35,13 @@
 
 ## 2. Model retraining
 - This repository contains modified code and retraining scripts for six RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore, NanoSPA). 
-- Modified source code (when applicable): For each tool where we've made source code modifications, the updated version is provided as a ZIP file (e.g., `/code/m6Anet_modified_code.zip`). The original code is used when no modifications are needed.
-- Step-by-step retraining tutorials: Each model includes a detailed retraining script (e.g., `/code/m6Anet_retrain_pipeline.sh`) that guides users through the complete retraining process.
-- Benchmarking datasets: Standardized RNA modification sites for model evaluation are available in `/benchmarking_sites/`.
-- All retrained models are saved in `/retrained_model/` for direct use or further customization.
+- Modified source code (when applicable): For each tool where we've made source code modifications, the updated version is provided as a ZIP file (e.g., `./code/m6Anet_modified_code.zip`). The original code is used when no modifications are needed.
+- Step-by-step retraining tutorials: Each model includes a detailed retraining script (e.g., `./code/m6Anet_retrain_pipeline.sh`) that guides users through the complete retraining process.
+- Benchmarking datasets: Standardized RNA modification sites for model evaluation are available in `./benchmarking_sites/`.
+- All retrained models are saved in `./retrained_model/` for direct use or further customization.
 
 ## 3. Model testing
-- We provide a standardized testing pipeline to evaluate the performance of both original and retrained models can be found in: `/code/model_test_pipeline.sh`.
+- We provide a standardized testing pipeline to evaluate the performance of both original and retrained models can be found in: `./code/model_test_pipeline.sh`.
 
 ## 4. Model Evaluation
 - Code for generating ROC and PR curves: `./code/ROC_curve.py`.
