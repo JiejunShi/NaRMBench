@@ -36,7 +36,7 @@
 ## 2. Model retraining
 - This repository contains modified code and retraining scripts for six RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore, NanoSPA). 
 - To enable easier model retraining, we have modified the original source code of some tools where retraining functionality was not readily available. The modified versions are provided as ZIP files (e.g., `./code/m6Anet_modified_code.zip`), while EpiNano and TandemMod remain unmodified as they already support retraining out-of-the-box.
-- Step-by-step retraining tutorials: Each model includes a detailed retraining script (e.g., [m6Anet-retrain](code/m6Anet_retrain.md)) that guides users through the complete retraining process.
+- Step-by-step retraining tutorials: Each model includes a detailed retraining script (e.g., [m6Anet-retrain](code/m6Anet_retrain_pipeline.md)) that guides users through the complete retraining process.
 - Benchmarking datasets: Standardized RNA modification sites for model evaluation are available in `./benchmarking_sites/`.
 - All retrained models are saved in `./retrained_model/` for direct use or further customization.
 
