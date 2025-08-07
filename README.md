@@ -27,19 +27,21 @@
 [![](https://img.shields.io/badge/m6Aiso-v0.0-blue)](https://github.com/SYSU-Wang-LAB/m6Aiso)
 [![](https://img.shields.io/badge/xPore-v2.0-blue)](https://github.com/GoekeLab/xpore)
 [![](https://img.shields.io/badge/pum6a-v0.0-blue)](https://github.com/liuchuwei/pum6a)
+[![](https://img.shields.io/badge/Xron-v0.0-blue)](https://github.com/haotianteng/Xron/tree/master)
+[![](https://img.shields.io/badge/Dorado-v1.1-blue)](https://github.com/nanoporetech/dorado)
 
 ## 1. Preprocess
 - Code for basecalling, read align and nanopolish-eventalign are in `./code/preprocess_pipeline.bash`.
 
 ## 2. Model retraining
 - This repository contains modified code and retraining scripts for six RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore, NanoSPA). 
-- For example, to retrain m6Anet model, use `./code/m6Anet_retrain_pipeline.sh`.
-- Modified source code for each tool is provided as a ZIP file, e.g. `./code/m6Anet_modified_code.zip`.
-- The benchmarking RNA modification sites can be found in: `./benchmarking_sites/`.
-- The retrained models are saved in: `./retrained_model/`.
+- Modified source code (when applicable): For each tool where we've made source code modifications, the updated version is provided as a ZIP file (e.g., `/code/m6Anet_modified_code.zip`). The original code is used when no modifications are needed.
+- Step-by-step retraining tutorials: Each model includes a detailed retraining script (e.g., `/code/m6Anet_retrain_pipeline.sh`) that guides users through the complete retraining process.
+- Benchmarking datasets: Standardized RNA modification sites for model evaluation are available in `/benchmarking_sites/`.
+- All retrained models are saved in `/retrained_model/` for direct use or further customization.
 
 ## 3. Model testing
-- The pipeline of model testing can be found in: `./code/model_test_pipeline.sh`.
+- We provide a standardized testing pipeline to evaluate the performance of both original and retrained models can be found in: `/code/model_test_pipeline.sh`.
 
 ## 4. Model Evaluation
 - Code for generating ROC and PR curves: `./code/ROC_curve.py`.
