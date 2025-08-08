@@ -1,4 +1,4 @@
-## Retraining pipeline for NanoSPA
+## Retraining pipeline for SingleMod
 ## 0.Installation
 ```
 unzip SingleMod_modified_code.zip
