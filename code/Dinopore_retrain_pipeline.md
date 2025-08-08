@@ -4,7 +4,6 @@
 unzip Dinopore_modified_code.zip
 codedir=path_to_modified_Dinopore
 ```
-- Note: We modified the original SingleMod code to add a new $mod ($mod: one of m1A, m7G, m6A, psU, or m5C) parameter that enables detection of other RNA modifications.
 ## 1.Basecalling, mapping, and signal extraction with nanopolish
 ```
 bash ${codedir}/S1.Basecall_map_nanopolish.sh $exptdir $ref $numcore
@@ -34,7 +33,7 @@ Rscript ${codedir}/s5.Train_preprocess_data_matrix_inputCNN_train_val.R \
 #   $output:    Output RDS file name
 #   $classref:  Ground truth annotation file for training
 ```
-* `` $classref``: format:contig  position        strand  edit    rate
+* `` $classref`` format: contig  position  strand  edit   rate
 ## 6.Train classification model
 ```
 Rscript ${codedir}/s6b.Training_classification_model_2class.R \
