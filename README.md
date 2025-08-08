@@ -1,4 +1,4 @@
-# Benchmarking the computational models detecting multitype RNA modifications from Nanopore Direct RNA Sequencing (DRS)
+# Benchmarking the computational tools detecting multitype RNA modifications using Nanopore Direct RNA Sequencing (DRS)
 
 ## Dependency
 ![](https://img.shields.io/badge/software-version-blue)  
