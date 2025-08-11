@@ -39,12 +39,12 @@
 - Step-by-step retraining tutorials: Each model includes a detailed retraining tutorials (e.g., [m6Anet-retrain](2.retraining/2.1.retrain_m6Anet/m6Anet_retrain_pipeline.md)) that guides users through the complete retraining process.
 - All retrained models are saved in `./2.retraining/${tool}/retrained_model/` for direct use or further customization.
 
-## 3. Model testing
-- We provide a standardized testing pipeline to evaluate the performance of both original and retrained models can be found in: `./code/model_test_pipeline.sh`.
+## 3. [Tool testing](3.testing/README.md)
+- We provide a standardized testing pipeline to evaluate the performance of both original and retrained models can be found in: `./3.testing/model_test_pipeline.sh`.
 
-## 4. Model Evaluation
-- Code for generating ROC and PR curves: `./code/ROC_curve.py`.
-- Code for selecting the optimal classification cut-off of each model:  `./code/optimal_cut-off_selection.py`.
+## 4. [Tool visualization](4.visualization/README.md)
+- Code for generating ROC and PR curves: `./4.visualization/ROC_curve.py`.
+- Code for selecting the optimal classification cut-off of each model:  `./4.visualization/optimal_cut-off_selection.py`.
 
 ## Authors
 - Tingting Luo
