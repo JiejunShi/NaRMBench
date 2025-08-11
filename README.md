@@ -1,4 +1,4 @@
-# Benchmarking the computational tools detecting multitype RNA modifications using Nanopore Direct RNA Sequencing (NaRMBench)
+# *Na*nopore Direct RNA Sequencing based *R*NA *M*odification detection tools' *Bench*marking (NaRMBench)
 
 ## Dependency
 ![](https://img.shields.io/badge/software-version-blue)  
