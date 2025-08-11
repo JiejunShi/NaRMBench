@@ -30,8 +30,8 @@
 [![](https://img.shields.io/badge/Xron-v0.0-blue)](https://github.com/haotianteng/Xron/tree/master)
 [![](https://img.shields.io/badge/Dorado-v1.1-blue)](https://github.com/nanoporetech/dorado)
 
-## 1. Preprocess
-- Code for basecalling, read align and nanopolish-eventalign are in `./code/preprocess_pipeline.bash`.
+## 1. [Preprocessing](1.preprocessing/preprocessing_pipeline.md)
+- This script provides a step-by-step pipeline for preprocessing Oxford Nanopore Direct RNA Sequencing data, from basecalling to alignment and signal re-squiggling using Tombo `./1.preprocessing/preprocess_pipeline.bash`.
 
 ## 2. Model retraining
 - This repository contains modified code and retraining scripts for six RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore, NanoSPA). 
