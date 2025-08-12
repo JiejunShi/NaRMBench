@@ -1,4 +1,4 @@
-## Retraining pipeline for Epinano
+## Retraining pipeline for TandemMod
 ## 0.Installation
 ```sh
 TandemMod origin code(https://github.com/yulab2021/TandemMod)
