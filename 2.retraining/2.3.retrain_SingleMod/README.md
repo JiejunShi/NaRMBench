@@ -6,6 +6,7 @@ SingleMod=path_to_modified_SingleMod
 ```
 - Note: We modified the original SingleMod code to add a new $mod ($mod: one of m1A, m7G, m6A, psU, or m5C) parameter that enables detection of other RNA modifications beyond m6A.
 ## 1.Mapping reads and splitting BAM file
+The required input data here comes from the output files of step 1.preprocessing in our pipeline(bam,fastq)
 ```
 # Map to reference genome using minimap2 externally, then split BAM for parallel processing
 mkdir -p split_bam_dir
@@ -86,7 +87,7 @@ while read -r motif; do
         -o training/motif/rep > training/motif/rep/training.log
 done < motifs.txt
 ```
-* `` $grouth_truth_bed``:  BED-like file with known methylation rates in `benchmarking_sites`. Format: chr start end . methylation_rate strand kmer
+* `` $grouth_truth_bed``:  BED-like file with known methylation rates in `ground_truth_sites`. Format: chr start end . methylation_rate strand kmer
 ## 4.Predict on held-out data
 ```
 while read -r motif; do
