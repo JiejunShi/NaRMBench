@@ -8,7 +8,7 @@ codedir=path_to_modified_Dinopore
 ```
 bash ${codedir}/S1.Basecall_map_nanopolish.sh $exptdir $ref $numcore
 # Arguments:
-#   $exptdir: Directory containing sample folder (e.g., ../raw_data/<sample_name>)
+#   $exptdir: Directory containing sample folder (e.g., include fastq,fast5)
 #   $ref:     Reference genome (FASTA)
 #   $numcore: Number of cores for parallel processing
 ```
@@ -33,7 +33,7 @@ Rscript ${codedir}/s5.Train_preprocess_data_matrix_inputCNN_train_val.R \
 #   $output:    Output RDS file name
 #   $classref:  Ground truth annotation file for training
 ```
-* `` $classref`` format: contig  position  strand  edit   rate
+* `` $classref`` format: contig  position  strand  edit   rate. from ``ground_truth_sites``
 ## 6.Train classification model
 ```
 Rscript ${codedir}/s6b.Training_classification_model_2class.R \
