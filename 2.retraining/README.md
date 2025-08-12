@@ -18,4 +18,4 @@ Each tool includes a step-by-step retraining guide:
 - [EpiNano Retraining Pipeline](2.5.retrain_EpiNano/README.md)
 - [TandemMod Retraining Pipeline](2.2.retrain_TandemMod/README.md)
 ## Pre-trained Models
-- Find ready-to-use retrained models in `./${tool}/retrained_models`
+- Find ready-to-use retrained models in `2.retraining/2.X.retrain_${tool_name}/retrained_models`
