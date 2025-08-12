@@ -35,16 +35,16 @@
 
 ## 2. [Model Retraining](2.retraining/README.md)
 - This [directory](2.retraining/README.md) contains modified code and retraining scripts for six RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore, NanoSPA). 
-- To enable easier model retraining, we have modified the original source code of some tools where retraining functionality was not readily available. The modified versions are provided as ZIP files (e.g., `./2.retraining/2.1.retrain_m6Anet/modified_code/m6Anet_modified_code.zip`), while EpiNano and TandemMod remain unmodified as they already support retraining out-of-the-box.
+- To enable easier model retraining, we have modified the original source code of some tools where retraining functionality was not readily available. The modified versions are provided as ZIP files (e.g., `2.retraining/2.1.retrain_m6Anet/modified_code/m6Anet_modified_code.zip`), while EpiNano and TandemMod remain unmodified as they already support retraining out-of-the-box.
 - Step-by-step retraining tutorials: Each model includes a detailed retraining tutorials (e.g., [retraining m6Anet](2.retraining/2.1.retrain_m6Anet/README.md)) that guides users through the complete retraining process.
-- All retrained models are saved in `./2.retraining/${tool_name}/retrained_models/` for direct use or further customization.
+- All retrained models are saved in `2.retraining/2.X.retrain_${tool_name}/retrained_models/` for direct use or further customization.
 
 ## 3. [Model Evaluation](3.evaluation/README.md)
 - We provide a standardized testing pipeline to evaluate the performance of both original and retrained models can be found in: [evaluation pipeline](3.evaluation/README.md).
 
 ## 4. [Downstream Analysis](4.downstream_analysis/README.md)
-- Code for generating ROC and PR curves: `./4.downstream_analysis/ROC_curve.py`.
-- Code for selecting the optimal classification cut-off of each model:  `./4.downstream_analysis/optimal_cut-off_selection.py`.
+- Code for generating ROC and PR curves: [ROC_curve.py](4.downstream_analysis/ROC_curve.py)
+- Code for selecting the optimal classification cut-off of each model:  [optimal_cut-off_selection.py](4.downstream_analysis/optimal_cut-off_selection.py)
 
 ## Authors
 - Tingting Luo

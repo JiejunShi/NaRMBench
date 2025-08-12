@@ -23,6 +23,7 @@ wt_basecall=${ws}/wt_basecall
 #RNA002
 $guppy/bin/guppy_basecaller -i $ws/wt_fast5 -s $ws/wt_basecall -c $guppy/data/rna_r9.4.1_70bps_hac.cfg --fast5_out -r  --cpu_threads_per_caller 24
 cat $ws/wt_basecall/pass/*fastq > $ws/wt.fastq
+
 #RNA004
 $dorado/bin/dorado basecaller $dorado/rna004_130bps_sup@v5.2.0  $wt_pod5 --reference $ref  > $ws/wt_basecall/wt.bam
 samtools fastq $ws/wt_basecall/wt.bam  > $ws/wt_basecall/wt.fastq

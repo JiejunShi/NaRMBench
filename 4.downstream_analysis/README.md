@@ -1,4 +1,4 @@
 # Tools visualization scripts.
-After running tool tests, use these scripts to generate visualizations and perform tool evaluation.
-- `./ROC_curve.py`: Code for generating ROC and PR curves.
-- `./optimal_cut-off_selection.py`: Code for selecting the optimal classification cut-off of each tool.
+After model evaluation, use scripts below to visualize:
+- Code for generating ROC and PR curves: [ROC_curve.py](4.downstream_analysis/ROC_curve.py)
+- Code for selecting the optimal classification cut-off of each model:  [optimal_cut-off_selection.py](4.downstream_analysis/optimal_cut-off_selection.py)
