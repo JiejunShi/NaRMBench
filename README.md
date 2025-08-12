@@ -30,13 +30,13 @@
 [![](https://img.shields.io/badge/Xron-v0.0-blue)](https://github.com/haotianteng/Xron/tree/master)
 [![](https://img.shields.io/badge/Dorado-v1.1-blue)](https://github.com/nanoporetech/dorado)
 
-## 1. [Preprocessing](1.preprocessing/preprocessing_pipeline.md)
+## 1. [Preprocessing](1.preprocessing/README.md)
 - This script provides a step-by-step pipeline for preprocessing Oxford Nanopore Direct RNA Sequencing data, from basecalling to alignment and signal re-squiggling using Tombo `./1.preprocessing/preprocess_pipeline.bash`.
 
 ## 2. [Model Retraining](2.retraining/README.md)
 - This repository contains modified code and retraining scripts for six RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore, NanoSPA). 
 - To enable easier model retraining, we have modified the original source code of some tools where retraining functionality was not readily available. The modified versions are provided as ZIP files (e.g., `./2.retraining/2.1.retrain_m6Anet/m6Anet_modified_code.zip`), while EpiNano and TandemMod remain unmodified as they already support retraining out-of-the-box.
-- Step-by-step retraining tutorials: Each model includes a detailed retraining tutorials (e.g., [m6Anet-retrain](2.retraining/2.1.retrain_m6Anet/m6Anet_retrain_pipeline.md)) that guides users through the complete retraining process.
+- Step-by-step retraining tutorials: Each model includes a detailed retraining tutorials (e.g., [m6Anet-retrain](2.retraining/2.1.retrain_m6Anet/README.md)) that guides users through the complete retraining process.
 - All retrained models are saved in `./2.retraining/${tool}/retrained_model/` for direct use or further customization.
 
 ## 3. [Model Evaluation](3.testing/README.md)
