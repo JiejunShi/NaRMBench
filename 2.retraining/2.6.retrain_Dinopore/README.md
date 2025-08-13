@@ -1,7 +1,7 @@
 ## Retraining pipeline for Dinopore
 ## 0.Installation
 ```
-unzip Dinopore_modified_code.zip
+unzip modified_code/Dinopore_modified_code.zip
 codedir=path_to_modified_Dinopore
 ```
 ## 1.Basecalling, mapping, and signal extraction with nanopolish

@@ -3,14 +3,15 @@
 ```sh
 $ pip install m6anet
 ```
-- Note: We modified the original m6Anet code to add a new `$modification` ($modification: one of m1A, m7G, m6A, psU, or m5C) parameter that enables detection of other RNA modifications beyond m6A. To use this modified version, please replace the original source code with our modified version provided in `m6Anet_modified_code.zip`.
+- Note: We modified the original m6Anet code to add a new `$modification` ($modification: one of m1A, m7G, m6A, psU, or m5C) parameter that enables detection of other RNA modifications beyond m6A. To use this modified version, please replace the original source code with our modified version provided in `modified_code/m6Anet_modified_code.zip`.
 ## 1.Data preparation
 The required input data here comes from the output files of step 1.preprocessing in our pipeline(bam,fastq).
 m6Anet dataprep requires eventalign.txt from ``nanopolish eventalign``:
 ```
-    #RNA002
+    # for RNA002
     nanopolish eventalign --reads reads.fastq --bam reads.sorted.bam --genome transcript.fa --scale-events --signal-index --summary /path/to/summary.txt  --threads 50 > $EVENTALIGN
-    #RNA004
+
+    # for RNA004
     f5c eventalign --rna -b reads.bam -r reads.fastq -g transciptome.fa -o $EVENTALIGN --kmer-model /path/to/rna004.nucleotide.5mer.model --slow5 reads.blow5 --signal-index --scale-events
 ```
 After running nanopolish eventalign, we need to preprocess the segmented raw signal file using 'm6anet dataprep':

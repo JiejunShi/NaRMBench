@@ -3,7 +3,7 @@
 ```sh
 git clone https://github.com/sihaohuanguc/NanoSPA.git
 ```
-- Notes: Since NanoSPA does not provide training scripts, we implemented new training scripts based on its model architecture, which are included in the `NanoSPA_modified_code.zip`.
+- Notes: Since NanoSPA does not provide training scripts, we implemented new training scripts based on its model architecture, which are included in the `modified_code/NanoSPA_modified_code.zip`.
 ## 1.Data preprocessing
 The required input data here comes from the output files of step 1.preprocessing in our pipeline(fastq)
 ```

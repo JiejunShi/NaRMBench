@@ -1,10 +1,10 @@
 ## Retraining pipeline for SingleMod
 ## 0.Installation
 ```
-unzip SingleMod_modified_code.zip
+unzip modified_code/SingleMod_modified_code.zip
 SingleMod=path_to_modified_SingleMod
 ```
-- Note: We modified the original SingleMod code to add a new $mod ($mod: one of m1A, m7G, m6A, psU, or m5C) parameter that enables detection of other RNA modifications beyond m6A.
+- Note: We modified the original SingleMod code to add a new `$mod` ($mod: one of m1A, m7G, m6A, psU, or m5C) parameter that enables detection of RNA modifications beyond m6A.
 ## 1.Mapping reads and splitting BAM file
 The required input data here comes from the output files of step 1.preprocessing in our pipeline(bam,fastq)
 ```
@@ -20,7 +20,7 @@ done
 ## 2.Nanopolish eventalign
 ```
 mkdir -p eventalign_output
-#RNA002
+# for RNA002
 for file in split_bam_dir/*.bam; do
     filename=$(basename "$file" .bam)
     echo "Processing $filename"
@@ -34,15 +34,16 @@ for file in split_bam_dir/*.bam; do
         --signal-index \
         --summary eventalign_output/"${filename}_summary.txt" \
         --print-read-names > eventalign_output/"${filename}_eventalign.txt"
-done
-#RNA004:
+done;
+
+# for RNA004:
 for file in split_bam_dir/*.bam
 do
 {
 info=(${file//// })
 f5c eventalign -r basecall_output_dir/merge.fastq -b $file -g reference.fa -t 15 --pore rna004 --rna --scale-events --samples --signal-index --summary eventalign_output_dir/${info[-1]%%.bam}_summary.txt --print-read-names > eventalign_output/${info[-1]%%.bam}_eventalign.txt
 } &
-done
+done;
 ```
 ## 3.Extract and organize features
 ```
