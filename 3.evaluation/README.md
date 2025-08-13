@@ -1,6 +1,6 @@
-## Model testing
-We provide a comprehensive testing pipeline to evaluate both original and retrained models across all supported tools.
-## Test Tools
+## Model Evaluation Pipelines
+This script provides a comprehensive pipeline to evaluate both original and retrained models across all supported tools.
+## Tools to evaluate
 ```
 CHEUI=path_to_CHEUI
 Epinano=path_to_EpiNano
@@ -36,7 +36,7 @@ gtf=path_to_reference_gtf
 ref=path_to_reference_transcriptome
 gene_ref=path_to_reference_genome
 ```
-## 1.CHEUI
+## 1. CHEUI
 ```
 mkdir ELIGOS m6Anet MINES Nanom6A EpiNano CHEUI Tombo DiffErr DRUMME xPore Nanocompore DENA SingleMod ELIGOS_diff Epinano_delta Tombo_com NanoSPA TandemMod NanoRMS PsiNanopore NanoMUD Dinopore pum6A m6Aiso 
 #m6A 
@@ -52,7 +52,7 @@ python $CHEUI/scripts/CHEUI_predict_model1.py -i $ws/CHEUI/5mc/wt.nanopolish_out
 sort -k1  --parallel=15  $ws/CHEUI/5mc/read_level_m5C_predictions.txt >$ws/CHEUI/5mc/read_level_m5C_predictions_sorted.txt
 python $CHEUI/scripts/CHEUI_predict_model2.py -i $ws/CHEUI/5mc/read_level_m5C_predictions_sorted.txt -m  $CHEUI/CHEUI_trained_models/CHEUI_m5C_model2.h5 -o $ws/CHEUI/5mc/site_level_m5C_predictions.txt
 ```
-## 2.Epinano
+## 2. EpiNano
 ```
 python $Epinano/Epinano_Variants.py -r $ref -b $ws/wt.bam -c 16 
 python $Epinano/Epinano_Variants.py -r $ref -b $ws/ko.bam -c 16
@@ -73,14 +73,14 @@ python $Epinano/Epinano_Predict.py \
 --columns 7,12,22 \
 --out_prefix $ws/EpiNano/$sample.delta
 ```
-## 3.DENA
+## 3. DENA
 ```
 cd $ws/DENA
 python3 $DENA/step4_predict/LSTM_extract.py get_pos --fasta $ref  --motif 'RRACH' --output $ws/DENA/candidate_predict_pos.txt
 python3 $DENA/step4_predict/LSTM_extract.py predict --fast5 $ws/wt_single/workspace/ --bam $ws/wt.bam  --sites $ws/DENA/candidate_predict_pos.txt --processes 32 --label $sample --windows 2 2
 python3 $DENA/step4_predict/LSTM_predict.py -i ./ -m $DENA/DENA_LSTM_Model/ -o $ws/DENA/result -p $sample
 ```
-## 4.differr
+## 4. DiffErr
 ```
 differr -a $ws/wt.bam \
 -b $ws/ko.bam \
@@ -98,6 +98,7 @@ differr -a $ws/wt.bam \
 txt=path_to_transcript_list
 #txt format
 #ENSMUST00000000001.4
+
 python $DRUMMER/DRUMMER.py -r $ref \
 -l $txt \
 -t $ws/ko.bam \
@@ -106,7 +107,7 @@ python $DRUMMER/DRUMMER.py -r $ref \
 -m True \
 -a isoform
 ```
-## 6.m6Anet
+## 6. m6Anet
 ```
 nanopolish eventalign --reads $wt.fastq \
 --bam $wt.bam \
@@ -115,19 +116,23 @@ nanopolish eventalign --reads $wt.fastq \
 --summary wt_summary.txt \
 --signal-index \
 --threads 16 > $ws/m6Anet/wt_eventalign.txt
+
 #dataprep
 m6anet dataprep --eventalign $ws/m6Anet/wt.nanopolish.txt \
 --out_dir $ws/m6Anet/dataprep \
 --n_processes 16 \
 --readcount_max 2000000
+
 #detect m6A
 m6anet inferencee --input_dir $ws/m6Anet/dataprep \
 --out_dir $ws/m6Anet/result \
 --n_processes 16
 ```
-## 7.tombo
+## 7.Tombo and Tombo_com
 ```
-##m6A
+# 7.1 Tombo
+
+## for m6A
 cd $ws/Tombo
 tombo detect_modifications de_novo --fast5-basedirs $ws/wt_single/workspace \
 --statistics-file-basename wt_m6A \
@@ -141,7 +146,8 @@ tombo text_output browser_files --fast5-basedirs $ws/wt_single/workspace \
 --motif-descriptions RRACH:3:m6A \
 --file-types coverage dampened_fraction fraction \
 --corrected-group RawGenomeCorrected_000
-##m5c
+
+## for m5c
 tombo detect_modifications alternative_model --alternate-bases 5mC --processes 16 --fast5-basedirs $ws/wt_single/workspace --statistics-file-basename wt
 tombo text_output browser_files --fast5-basedirs $ws/wt_single/workspace \
 --statistics-filename wt.5mC.tombo.stats \
@@ -149,14 +155,16 @@ tombo text_output browser_files --fast5-basedirs $ws/wt_single/workspace \
 --motif-descriptions CG:1:CG_5mC \
 --file-types coverage fraction dampened_fraction \
 --browser-file-basename wt_CG_5mC
-#Tombo_compare
+
+# 7.2 Tombo_com
 cd $ws/Tombo_com
 tombo detect_modifications model_sample_compare --fast5-basedirs $ws/wt_single/workspace \
 --control-fast5-basedirs $ws/ko_single/workspace \
 --statistics-file-basename wt_com \
 --corrected-group RawGenomeCorrected_000 \
 --processes 16
-##m6A
+
+## for m6A
 tombo text_output browser_files --fast5-basedirs $ws/wt_single/workspace \
 --control-fast5-basedirs $ws/ko_single/workspace \
 --statistics-filename wt_com.tombo.stats \
@@ -165,7 +173,8 @@ tombo text_output browser_files --fast5-basedirs $ws/wt_single/workspace \
 --motif-descriptions RRACH:3:m6A \
 --file-types coverage dampened_fraction fraction \
 --corrected-group RawGenomeCorrected_000
-##m5c
+
+## for m5c
 #CHG:1:CHG_5mC,CHH:1:CHH_5mC
 tombo text_output browser_files --fast5-basedirs $ws/wt_single/workspace \
 --control-fast5-basedirs $ws/ko_single/workspace \
@@ -187,11 +196,12 @@ awk '{if($0!=null){print $0}}' wt.fraction_modified_reads.plus.wig > wt.wig
 wig2bed < wt.wig > wt.fraction_modified_reads.plus.wig.bed --multisplit=mines
 python $MINES/cDNA_MINES.py --fraction_modified wt.fraction_modified_reads.plus.wig.bed --coverage wt.coverage.plus.bedgraph --output wt.genomic.bed --ref $ref
 ```
-## 9.eligos
+## 9. Eligos
 ```
 bed=path_to_detection_region_bed
 #bed format
 #transcript 1 length * * *
+
 eligos2 rna_mod -i $ws/wt.bam \
 -reg $bed \
 -ref $ref \
@@ -215,7 +225,7 @@ eligos2 pair_diff_mod -tbam $ws/wt.bam \
 --pval 1 \
 -t 16
 ```
-## 10.nanocompare
+## 10. Nanocompore
 ```
 nanocompore eventalign_collapse  -i $ws/CHEUI/wt.nanopolish.txtt \
 -o $ws/Nanocompore/wt \
@@ -233,7 +243,7 @@ nanocompore sampcomp --file_list1 $ws/Nanocompore/wt/out_eventalign_collapse.tsv
 --allow_warnings \
 --nthreads 16
 ```
-## 11.Nanom6a
+## 11. Nanom6a
 ```
 bed=path_to_reference_genome_gene_bed
 #bed format
@@ -254,7 +264,7 @@ python $nanom6A/predict_sites.py -i $ws/Nanom6A \
 --support 5 \
 --model $nanom6A/bin/model
 ```
-## 12.nanomud
+## 12. NanoMUD
 ```
 python3 $nanomud/code/feature_extraction.py \
 -i $ws/wt_single/workspace/ \
@@ -272,14 +282,14 @@ python3  $nanomud/code/mod_rate_calibration.py \
 --device cuda:0 \
 --model $nanomud/models/psi/regression_model
 ```
-## 13. nanoRMS
+## 13. NanoRMS
 ```
 cd $ws/NanoRMS
 python3 $nanoRMS/epinano_RMS/epinano_rms.py -R $ref -b $ws/wt.bam -s $nanoRMS/epinano_RMS/sam2tsv.jar
 python3 $nanoRMS/epinano_RMS/epinano_rms.py -R $ref -b $ws/ko.bam -s $nanoRMS/epinano_RMS/sam2tsv.jar
 Rscript --vanilla $nanoRMS/predict_rna_mod/Pseudou_prediction_pairedcondition_transcript.R -f wt.per.site.baseFreq.csv -s ko.per.site.baseFreq.csv
 ```
-## 14.nanoSPA
+## 14. NanoSPA
 ```
 cd $ws/NanoSPA/
 mkdir wt
@@ -314,7 +324,7 @@ python $TandemMod/scripts/TandemMod.py --run_mode predict \
     --feature_file $ws/TandemMod/wt.feature_m6A.tsv \
     --predict_result $ws/TandemMod/wt.predict_m6A.tsv
 ```
-## 17.xpore
+## 17. Xpore
 ```
 xpore dataprep --eventalign $ws/CHEUI/wt.nanopolish.txt \
 --out_dir $ws/xpore/wt \
@@ -416,7 +426,7 @@ python $pum6a/run.py predict --config $ws/pum6a/config.toml
 #    model_path = '$pum6A/result/293T_model/hV0Pn_231228142737_88888888_ran_model.pt'
 #    device = 'cuda'
 ```
-## 21.m6Aiso
+## 21. m6Aiso
 ```
 python -m m6Aiso current_signal_abstract_for_m6A_pred --nanopolish_result $ws/m6Anet/wt.nanopolish.txt --number 16 --out_dir $ws/m6Aiso
 python -m m6Aiso molecular_m6A_predication --model_path $m6Aiso/module/semi_model_7mer.times_over.epoch_0.pt \
@@ -424,12 +434,12 @@ python -m m6Aiso molecular_m6A_predication --model_path $m6Aiso/module/semi_mode
         --max_value_filename $m6Aiso/data/merge_max_value_list.txt \
         --min_value_filename $m6Aiso/data/merge_min_value_list.txt
 ```
-## 22.dorado
+## 22. Dorado
 ```
 $dorado/bin/dorado basecaller $dorado/rna004_130bps_sup@v5.2.0  $wt_pod5 --reference $ref --reference $ref --modified-bases m6A_DRACH >  $ws/wt_basecall/wt.bam
 $modkit pileup $ws/wt_basecall/wt.bam $ws/wt.dorado.bed
 ```
-## 23.xron
+## 23. Xron
 ```
 $xron call -i $ws/wt_single/workspace -o $ws/wt_basecall --fast5 -m $xron/models/RNA004 --device cuda --batch_size 200
 ```
