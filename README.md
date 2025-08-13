@@ -34,13 +34,13 @@
 - This [script](1.preprocessing/README.md) provides a step-by-step pipeline for preprocessing Oxford Nanopore Direct RNA Sequencing data, from basecalling to alignment and signal re-squiggling using Tombo.
 
 ## 2. [Model Retraining](2.retraining/README.md)
-- This [directory](2.retraining/README.md) contains modified code and retraining scripts for six RNA modification detection tools (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore, NanoSPA). 
-- To enable easier model retraining, we have modified the original source code of some tools where retraining functionality was not readily available. The modified versions are provided as ZIP files (e.g., `2.retraining/2.1.retrain_m6Anet/modified_code/m6Anet_modified_code.zip`), while EpiNano and TandemMod remain unmodified as they already support retraining out-of-the-box.
-- Step-by-step retraining tutorials: Each model includes a detailed retraining tutorials (e.g., [retraining m6Anet](2.retraining/2.1.retrain_m6Anet/README.md)) that guides users through the complete retraining process.
-- All retrained models are saved in `2.retraining/2.X.retrain_${tool_name}/retrained_models/` for direct use or further customization.
+- This [directory](2.retraining/README.md) contains retraining pipelines and modified code for six retrainable-in-practise frameworks (m6Anet, SingleMod, EpiNano, TandemMod, Dinopore, NanoSPA). 
+- To facilitate model retraining, we have modified the original source code of some tools where retraining functionality was not readily available. The modified versions are provided as ZIP files (e.g., `2.retraining/2.1.retrain_m6Anet/modified_code/m6Anet_modified_code.zip`), while EpiNano and TandemMod remain unmodified as they already support retraining out-of-the-box.
+- Step-by-step tutorials: a detailed retraining tutorial is provided for each framework (e.g., [retraining m6Anet](2.retraining/2.1.retrain_m6Anet/README.md)) that guide users through the complete retraining process.
+- All retrained models are saved in `2.retraining/2.X.retrain_${tool_name}/retrained_models/` for direct use.
 
 ## 3. [Model Evaluation](3.evaluation/README.md)
-- We provide a standardized testing pipeline to evaluate the performance of both original and retrained models can be found in: [evaluation pipeline](3.evaluation/README.md).
+- We provide a standardized pipeline to evaluate the performance of both original and retrained models which can be found in: [evaluation pipeline](3.evaluation/README.md).
 
 ## 4. [Downstream Analysis](4.downstream_analysis/README.md)
 - Code for generating ROC and PR curves: [ROC_curve.py](4.downstream_analysis/ROC_curve.py)
