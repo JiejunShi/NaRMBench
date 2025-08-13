@@ -52,7 +52,7 @@ python $CHEUI/scripts/CHEUI_predict_model1.py -i $ws/CHEUI/5mc/wt.nanopolish_out
 sort -k1  --parallel=15  $ws/CHEUI/5mc/read_level_m5C_predictions.txt >$ws/CHEUI/5mc/read_level_m5C_predictions_sorted.txt
 python $CHEUI/scripts/CHEUI_predict_model2.py -i $ws/CHEUI/5mc/read_level_m5C_predictions_sorted.txt -m  $CHEUI/CHEUI_trained_models/CHEUI_m5C_model2.h5 -o $ws/CHEUI/5mc/site_level_m5C_predictions.txt
 ```
-## 2. EpiNano
+## 2. EpiNano and EpiNano_delta
 ```
 python $Epinano/Epinano_Variants.py -r $ref -b $ws/wt.bam -c 16 
 python $Epinano/Epinano_Variants.py -r $ref -b $ws/ko.bam -c 16
@@ -66,6 +66,7 @@ python $Epinano/Epinano_Predict.py \
 python $Epinano/misc/Epinano_make_delta.py $ws/EpiNano/wt.fwd.per.site.5mer.csv \
 $ws/EpiNano/ko.fwd.per.site.5mer.csv \
 5 5 > $ws/EpiNano/$sample.wt_ko_delta.5mer.csv
+
 #predict modifications
 python $Epinano/Epinano_Predict.py \
 --model $Epinano/models/rrach.deltaQ3.deltaMis3.deltaDel3.linear.dump \
@@ -196,7 +197,7 @@ awk '{if($0!=null){print $0}}' wt.fraction_modified_reads.plus.wig > wt.wig
 wig2bed < wt.wig > wt.fraction_modified_reads.plus.wig.bed --multisplit=mines
 python $MINES/cDNA_MINES.py --fraction_modified wt.fraction_modified_reads.plus.wig.bed --coverage wt.coverage.plus.bedgraph --output wt.genomic.bed --ref $ref
 ```
-## 9. Eligos
+## 9. Eligos and Eligos_diff
 ```
 bed=path_to_detection_region_bed
 #bed format
