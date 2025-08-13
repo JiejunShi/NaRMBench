@@ -1,5 +1,5 @@
 ## Model Retraining Pipelines
-This directory provides retraining pipelines and modified codes for six retrainable-in-practise Frameworks, enabling researchers to easily retrain models with customized datasets.
+This directory provides retraining pipelines and modified codes for six retrainable-in-practise frameworks, enabling researchers to easily retrain models with customized datasets.
 ## Retrainable Frameworks
 ### Frameworks with modified code which enables extension  to other modifications: ###
 - m6Anet [modified code package](2.1.retrain_m6Anet/modified_code/m6Anet_modified_code.zip)

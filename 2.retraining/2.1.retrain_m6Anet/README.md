@@ -3,7 +3,7 @@
 ```sh
 $ pip install m6anet
 ```
--Note: We modified the original m6Anet code to add a new $modification ($modification: one of m1A, m7G, m6A, psU, or m5C) parameter that enables detection of other RNA modifications beyond m6A. To use this enhanced version, please replace the original source code with our modified version provided in m6Anet_modified_code.zip.
+- Note: We modified the original m6Anet code to add a new `$modification` ($modification: one of m1A, m7G, m6A, psU, or m5C) parameter that enables detection of other RNA modifications beyond m6A. To use this modified version, please replace the original source code with our modified version provided in `m6Anet_modified_code.zip`.
 ## 1.Data preparation
 The required input data here comes from the output files of step 1.preprocessing in our pipeline(bam,fastq).
 m6Anet dataprep requires eventalign.txt from ``nanopolish eventalign``:
