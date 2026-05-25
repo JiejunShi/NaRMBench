@@ -19,6 +19,7 @@ After running nanopolish eventalign, we need to preprocess the segmented raw sig
 m6anet dataprep --eventalign $EVENTALIGN \
                 --out_dir $OUT_DIR \
                 --n_processes $N_PROCESSES \
+                --readcount_max 2000000 \
                 -m $modification 
 ```
 ## 2.Feature labeling and dataset generation
