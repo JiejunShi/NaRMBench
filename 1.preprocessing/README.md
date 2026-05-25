@@ -31,7 +31,7 @@ samtools fastq $ws/wt_basecall/wt.bam  > $ws/wt_basecall/wt.fastq
 ## 2.Alignment
 ```
 minimap2 -ax map-ont --MD -t 16 $ref $ws/wt.fastq > $ws/wt.sam
-samtools view -@ 16 -bh -F 2324 $ws/wt.sam | samtools sort -@ 16 -o $ws/wt.bam
+samtools view -@ 16 -bh -F 2308 $ws/wt.sam | samtools sort -@ 16 -o $ws/wt.bam
 samtools index $ws/wt.bam
 ```
 ## 3.Convert to Single FAST5 Format
